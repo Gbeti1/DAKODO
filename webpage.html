@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Signup Form</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    
+
+<script src="script.js"></script>
+
+</head>
+<style>
+  li{
+  color:blue;
+  }
+  
+  
+ p{
+     float: right;
+    font-size:10px;
+    font-family:times;
+    margin-top:-10px;
+ }
+ 
+ h1{
+     
+    font-size:10px;
+    font-family:times;
+ }
+ 
+ 
+h2{
+     
+    font-size:10px;
+    font-family:times;
+ } 
+
+
+    
+  span.psw {
+    float: right;
+    padding-top: 20px;}
+    
+    /* Reset default button styles */
+button {
+  border: none;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color:#8098ff1a;
+   /* Optional background color */
+}
+
+.form-wrapper {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.nav-tabs li {
+  list-style: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-right: 10px;
+}
+
+.nav-tabs li.active {
+  background-color: #f0f0f0;
+}
+
+.form-box {
+  display: flex;
+}
+
+.form-box form {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 80%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+p1{
+    margin-left: -35px;
+    color:green;
+    }
+
+</style>
+
+<body>
+
+inscrivez ou connectez pour accéder au site  
+ <div class="container">
+     
+
+     
+ <div class="form-wrapper">
+
+            <div class="form-box">
+                <form action="" id="login-form">
+                    <div class="form-group">
+                        <label for="username"><b>Username or Email</b></label>
+                        <input type="text" placeholder="username or Email" id="username" required>
+                     </div>
+                    <div class="form-group">
+                        <label for="password"><b>Password</b></label>
+                        <input type="password" placeholder="password" id="password" required>
+  <p1><i class="fa fa-eye showEye"></i></p1>                      
+                    </div>
+<button type="submit"><strong>se connecter</strong></button>
+                </form>
+                
+                
+
+<form action="" id="signup-form" style="display: none;">
+             
+            
+             
+   <div class="form-group">
+   <label for="name"><b>First name</b></label>
+   <input type="text" placeholder="First name" id="name" required><br><br>
+   
+   <label for="name"><b>Last name</b></label>
+   <input type="text" placeholder="Last name" id="name">
+                    </div>
+                    
+ <div class="form-group">
+ <label for="email"><b>Email</b></label>
+ <input type="email" id="email" placeholder ="Email"required></div>
+                        
+ <div class="form-group">
+ <label for="signup-password"><b>Password</b></label>
+ <input type="password" name="signup-password" id="password1"
+ placeholder ="password" required><br><br>
+ 
+ <label for="signup-password"><b>Confirm Password</b></label>
+ <input type="password" name="signup-password" id="password2"
+ placeholder ="confirm password "required> </div>
+ 
+ <p><input type="checkbox" id="showPassword" onclick="togglePassword()">
+<label for="showPassword">Show Password</label></p>
+ 
+<button type="submit"><strong>Valider</strong></button></form>
+        </div>
+        
+        
+ <ul class="nav-tabs">
+ <li class="active">Login</li>
+ <li>Signup</li></ul>
+ 
+<h1><input type="checkbox"
+checked="checked">
+Remember me</h2>
+
+<h2><span class="psw">Forgot
+ <a href="#">password?</h2>
+        </div>
+        </div> 
+        </div>
+
+
+ 
+  
+    
+ 
+ <script>
+ 
+  const tabs = document.querySelectorAll('.nav-tabs li');
+const forms = document.querySelectorAll('.form-box form');
+
+tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active'); // Closing parenthesis added here
+
+        forms.forEach(form => form.style.display = 'none');
+        const clickedForm = forms[index];
+        clickedForm.style.display = 'block';
+    });
+});
+
+
+
+
+function togglePassword() {
+  const password1 = document.getElementById('password1');
+  const password2 = document.getElementById('password2');
+  const checkbox = document.getElementById('showPassword');
+  if (checkbox.checked) {
+    password1.type = 'text';
+    password2.type = 'text';
+  } else {
+    password1.type = 'password';
+    password2.type = 'password';
+  }
+}
+
+
+
+let  alphabet = /[a-zA-Z]/;
+  let number = /[0-9]/;
+  let scharacters= /[!,?,;,#,*,@,&,_,-,(]/;
+      
+  const password = document.querySelector("#password");
+ 
+
+ 
+   // Select by ID
+ 
+ const showEye = document.querySelector(".showEye");
+ 
+ 
+ showEye.addEventListener("click", () => {
+  if (password.type === "password") {
+    password.type = "text";
+    showEye.classList.replace("fa-eye", "fa-eye-slash");
+  } else {
+    password.type = "text";
+    showEye.classList.replace("fa-eye-slash", "fa-eye");
+  }
+});
+
+ 
+ </script>
+ 
+ 
+</body>
+</html>
